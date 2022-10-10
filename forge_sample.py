@@ -18,7 +18,6 @@ if 'object' not in st.session_state:
 
 st.title("Autodesk Forge - Streamlite example")
 
-# print(buckets)
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -31,7 +30,7 @@ with col2:
     st.subheader("Objects")
     if st.session_state['bucket'] != '' :
         objects = ossClient.get_all_objects(st.session_state['bucket'])
-        # print(objects)
+
         if not objects :
             st.write('No objects in this bucket')
         for object in objects :
@@ -49,14 +48,3 @@ with col3:
         st.write(f"Size: {details['size']}")
         st.write(f"Location: {details['location']}")
         st.write(f"SHA1: {details['sha1']}")
-        # print(bucketKey)
-        # print(objectKey)
-        #forge-csharp-sample-app-unp0kvctfnaihlxfpvvwuvflcsr9weiy
-        #my-elephant.obj
-
-
-# if st.button('Back') :
-#     if st.session_state['object'] != '':
-#         st.session_state['object'] = ''
-#     else : 
-#         st.session_state['bucket'] = ''
